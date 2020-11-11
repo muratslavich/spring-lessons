@@ -1,2 +1,4 @@
 rootProject.name = 'spring-lessons'
+include 'lesson-2'
+include 'lesson-1'
 

@@ -73,5 +73,11 @@ dependencies {
 Конфигурации
 - Xml-based - `ClassPathXmlApplicationContext`
 - Annotation-based - `AnnotationConfigApplicationContext(config.xml)` - в xml добавить `component-scan`
+    - `@Configuration`
+    - `@Component`
+    - `@Controller`
+    - `@Service`
+    - `@Repository`
+    - `@Authowired`
+    - `@Qualifier`
 - Java-config - `AnnotationConfigApplicationContext(basePackage)` - `@Configuration` и `@ComponentScan`
-

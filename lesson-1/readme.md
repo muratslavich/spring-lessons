@@ -1,4 +1,4 @@
-Пример инициализации Spring контекста
+## Пример инициализации Spring контекста
 
 ### Создание каркаса приложения 
 - Gradle
@@ -56,16 +56,22 @@ dependencies {
 
 ### Работа с контекстом
 
-Пакеты `org.springframework.beans` и `org.springframework.context` являются основными для Spring Framework IoC контейнера.
+Пакеты `org.springframework.app.beans` и `org.springframework.context` являются основными для Spring Framework IoC контейнера.
 - Интерфейс `BeanFactory`
     - основной интерфейс для взаимодействия с бинами
     - заботится о жизненном цикле бина
     - нужно вручную зарегестрировать `BeanPostProcessor` и `BeanFactoryPostProcessor`
+    - не поддерживает annotation-based injection
     - `getBean()` , `containsBean()` , `isSingleton()` , `isPrototype()`
 - `ApplicationContext` наследует `BeanFactory`. 
     - Производит автоматическую регистрацию `BeanPostProcessor` и `BeanFactoryPostProcessor`
     - Интеграция с spring AOP фичами
     - Публикует связанные с контекстом events
     - Поддерживает специфические контексты приложений: e.g. `WebApplicationContext`
+    - `getBeanDefinitionNames()`
     
-    
+Конфигурации
+- Xml-based - `ClassPathXmlApplicationContext`
+- Annotation-based - `AnnotationConfigApplicationContext(config.xml)` - в xml добавить `component-scan`
+- Java-config - `AnnotationConfigApplicationContext(basePackage)` - `@Configuration` и `@ComponentScan`
+

@@ -1,8 +1,7 @@
-package model;
+package app.beans;
 
 import lombok.*;
 
-@ToString
 @Setter
 @Getter
 public class OtherThing {

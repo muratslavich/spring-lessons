@@ -5,12 +5,12 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="other_thing" class="model.OtherThing">
-        <property name="string" value="I'am xml config bean"/>
+    <bean id="other_thing" class="app.beans.OtherThing">
+        <property name="string" value="I'am xml app.config bean"/>
     </bean>
 
-    <bean id="thing" class="model.Thing">
-        <property name="other" ref="other_thing"/>
+    <bean id="thing" class="app.beans.Thing">
+        <constructor-arg name="other" ref="other_thing"/>
     </bean>
 
 </beans>

@@ -58,12 +58,14 @@ dependencies {
 
 Пакеты `org.springframework.app.beans` и `org.springframework.context` являются основными для Spring Framework IoC контейнера.
 - Интерфейс `BeanFactory`
+    - lazy bean initialization
     - основной интерфейс для взаимодействия с бинами
     - заботится о жизненном цикле бина
     - нужно вручную зарегестрировать `BeanPostProcessor` и `BeanFactoryPostProcessor`
     - не поддерживает annotation-based injection
     - `getBean()` , `containsBean()` , `isSingleton()` , `isPrototype()`
-- `ApplicationContext` наследует `BeanFactory`. 
+- `ApplicationContext` наследует `BeanFactory`.
+    - initialize all beans at startup 
     - Производит автоматическую регистрацию `BeanPostProcessor` и `BeanFactoryPostProcessor`
     - Интеграция с spring AOP фичами
     - Публикует связанные с контекстом events

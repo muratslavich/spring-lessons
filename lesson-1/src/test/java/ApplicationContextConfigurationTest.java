@@ -22,7 +22,7 @@ public class ApplicationContextConfigurationTest {
         AnnotationComponent bean = annotationContext.getBean(AnnotationComponent.class);
         assertNotNull( bean.getService() );
 
-        log.info("Annotation context -> " + Arrays.toString( xmlContext.getBeanDefinitionNames() ));
+        log.info("xml context -> " + Arrays.toString( xmlContext.getBeanDefinitionNames() ));
         log.info("Annotation context -> " + Arrays.toString( annotationContext.getBeanDefinitionNames() ));
         log.info("Java context -> " + Arrays.toString( javaContext.getBeanDefinitionNames() ));
     }

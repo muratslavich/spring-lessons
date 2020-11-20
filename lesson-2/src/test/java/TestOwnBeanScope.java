@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestOwnBeanScope {
 
+    /*
+    * Пример добавления кастомного скоупа бинов
+    * Пример использования BeanFactoryPostProcessor
+    * */
     @Test
     public void testOwnBeanScope() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CustomScopeConfiguration.class);

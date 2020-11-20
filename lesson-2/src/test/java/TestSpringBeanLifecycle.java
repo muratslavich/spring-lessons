@@ -1,3 +1,4 @@
+import app.configuration.*;
 import lombok.extern.apachecommons.*;
 import org.junit.jupiter.api.*;
 import org.springframework.context.annotation.*;
@@ -10,6 +11,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 @CommonsLog
 public class TestSpringBeanLifecycle {
 
+    /*
+    * Пример жизненного цикла синглтона.
+    * Пример использования BeanPostProcessor
+    * */
     @Test
     public void testSingleton() {
         GenericApplicationContext context = new AnnotationConfigApplicationContext(SingletonConfiguration.class);
@@ -23,6 +28,9 @@ public class TestSpringBeanLifecycle {
         context.close();
     }
 
+    /*
+    * Пример использования prototype бина
+    * */
     @Test
     public void testPrototype() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(PrototypeConfiguration.class);

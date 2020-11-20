@@ -1,15 +1,14 @@
-package circular.field;
+package circular.post;
 
-import org.springframework.beans.factory.annotation.*;
+import lombok.*;
+import lombok.extern.apachecommons.*;
 import org.springframework.stereotype.*;
 
 @Component
+@CommonsLog
+@Getter
 public class SecondBean {
     private FirstBean firstBean;
-
-    public FirstBean getFirstBean() {
-        return firstBean;
-    }
 
     public void setFirstBean(FirstBean firstBean) {
         this.firstBean = firstBean;

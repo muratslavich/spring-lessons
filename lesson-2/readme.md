@@ -50,5 +50,8 @@ BeanDefinition - рецепты для создания бинов. Опреде
 - @Autowired
 - Constructor, method/setter
 - Service Factory Lookup
-- Circular dependency
-    -  
+- Circular dependency - можно разрешить через
+    - @Autowired
+    - Setter injection
+    - @Lazy
+    - @PostConstruct 

@@ -22,6 +22,7 @@ public class TestBeanInjection {
             () -> new AnnotationConfigApplicationContext(CircularDependencyConfiguration.class)
         );
     }
+
     /*
     * Инжектирование бинов через @Autowired.
     * Пример циклической FirstBean -> SecondBean -> FirstBean зависимости,
@@ -33,6 +34,34 @@ public class TestBeanInjection {
 
         assertNotNull( context.getBean(FirstBean.class) );
         assertNotNull( context.getBean(SecondBean.class) );
+    }
+
+    /*
+    * Циклическая зависимость может быть разрешена как @Lazy.
+    * Вмсето полной инициализации зависимости, будет созданно прокси.
+    * Инициализация произайдет после первого обращения.
+    * */
+    @Test
+    public void testLazyInjection() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+            circular.lazy.FirstBean.class,
+            circular.lazy.SecondBean.class
+        );
+
+        circular.lazy.FirstBean bean = context.getBean(circular.lazy.FirstBean.class);
+    }
+
+    /*
+     * Циклическая зависимость может быть разрешена внедрением через setter.
+     * */
+    @Test
+    public void testSetterInjection() {
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+            circular.field.FirstBean.class,
+            circular.field.SecondBean.class
+        );
+
+        circular.field.FirstBean bean = context.getBean(circular.field.FirstBean.class);
     }
 
     /*

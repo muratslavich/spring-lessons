@@ -48,9 +48,7 @@ BeanDefinition - рецепты для создания бинов. Опреде
 
 #### Dependency injection
 - @Autowired
-- Constructor, method
+- Constructor, method/setter
 - Service Factory Lookup
-- circular dependency 
-
-#### Prototype in singleton
- 
+- Circular dependency
+    -  

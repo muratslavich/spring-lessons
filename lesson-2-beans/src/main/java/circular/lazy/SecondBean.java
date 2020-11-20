@@ -9,7 +9,7 @@ public class SecondBean {
     final FirstBean firstBean;
 
     public SecondBean(FirstBean firstBean) {
-        log.info("----> second bean is initialized");
+        log.info("----> lazy bean is initialized");
         this.firstBean = firstBean;
     }
 }

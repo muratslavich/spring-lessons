@@ -39,7 +39,7 @@ public class TestBeanInjection {
     /*
     * Циклическая зависимость может быть разрешена как @Lazy.
     * Вмсето полной инициализации зависимости, будет созданно прокси.
-    * Инициализация произайдет после первого обращения.
+    * Прокси заменится на инициализированный бин после первого обращения.
     * */
     @Test
     public void testLazyInjection() {
@@ -49,6 +49,7 @@ public class TestBeanInjection {
         );
 
         circular.lazy.FirstBean bean = context.getBean(circular.lazy.FirstBean.class);
+        circular.lazy.SecondBean secondBean = bean.getSecondBean();
     }
 
     /*

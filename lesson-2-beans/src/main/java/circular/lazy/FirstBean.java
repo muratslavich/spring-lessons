@@ -1,5 +1,6 @@
 package circular.lazy;
 
+import lombok.*;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.*;
 * */
 
 @Component
+@Getter
 public class FirstBean {
     final SecondBean secondBean;
 

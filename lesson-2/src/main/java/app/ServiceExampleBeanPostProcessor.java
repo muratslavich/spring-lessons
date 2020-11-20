@@ -3,10 +3,8 @@ package app;
 import lombok.extern.apachecommons.*;
 import org.springframework.beans.*;
 import org.springframework.beans.factory.config.*;
-import org.springframework.stereotype.*;
 
 @CommonsLog
-@Component
 public class ServiceExampleBeanPostProcessor implements BeanPostProcessor {
 
     @Override
@@ -24,4 +22,5 @@ public class ServiceExampleBeanPostProcessor implements BeanPostProcessor {
         }
         return bean;
     }
+
 }

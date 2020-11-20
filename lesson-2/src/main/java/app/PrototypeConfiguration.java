@@ -7,6 +7,11 @@ import org.springframework.context.annotation.*;
 @Configuration
 public class PrototypeConfiguration {
 
+    @Bean
+    public BeanPostProcessor beanPostProcessor() {
+        return new ServiceExampleBeanPostProcessor();
+    }
+
     @Bean(name = "muSuperPrototype", initMethod = "initMethod", destroyMethod = "destroyMethod")
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public ServiceExample prototypeService() {

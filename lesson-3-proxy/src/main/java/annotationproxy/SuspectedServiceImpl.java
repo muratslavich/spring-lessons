@@ -11,6 +11,7 @@ public class SuspectedServiceImpl implements SuspectedService {
     @Aspectional
     public void foo() {
         log.info("----> foo");
+        this.bar();
     }
 
     @Aspectional

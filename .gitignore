@@ -1,3 +1,8 @@
 /.idea/
 /lesson-1/build/
 /lesson-1/target/
+/.gradle/
+/lesson-1-context/build/
+/lesson-2-beans/build/
+/lesson-3-proxy/build/
+/gradle/wrapper/

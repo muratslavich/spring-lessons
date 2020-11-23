@@ -1,4 +1,5 @@
 rootProject.name = 'spring-lessons'
 include 'lesson-1-context'
 include 'lesson-2-beans'
+include 'lesson-3-proxy'
 

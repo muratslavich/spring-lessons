@@ -8,7 +8,8 @@
 - session - инстанс на каждую http сессию
 - global-session - инстанс на каждую глобальную http сессию
 
-Можно создать свой кастомный scope. 
+> Можно создать свой кастомный scope.  
+> Implement interface Scope and register related BeanFactoryPostProcessor 
 
 #### Beans Lifecycle
 
@@ -37,18 +38,30 @@ BeanDefinition - рецепты для создания бинов. Опреде
     - AnnotatedBeanDefinitionReader
     - BeanDefinitionReader
     - ClassPathBeanDefinitionScanner
-2. Создание кастомных beanFactory
-    - FactoryBean<T>
-3. Настройка созданных BeanDefinitions
+2. Настройка созданных BeanDefinitions
     - BeanFactoryPostProcessor
+3. Создание кастомных beanFactory
+    - FactoryBean<T>
 4. Инстанциирование бинов
     - BeanFactory
 5. Настройка созданных бинов
     - BeanPostProcessor
 
 #### Dependency injection
-- @Autowired
-- Constructor, method/setter
+- Field - @Autowired 
+    - AutowiredAnnotationBeanPostProcessor
+    - внедрение в поле через рефлекшн
+```java
+ReflectionUtils.makeAccessible(field);
+field.set(bean, value);
+```
+> Минусы
+> - нельзя создать immutable объект
+> - high coupling with DI container, объекты невозможно использовать вне
+> - нельзя инстанцировать класс без рефлекшн, например в тестах
+
+- Constructor 
+- Setter
 - Service Factory Lookup
 - Circular dependency - можно разрешить через
     - @Autowired

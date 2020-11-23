@@ -1,6 +1,8 @@
+import annotationproxy.*;
 import lombok.extern.apachecommons.*;
 import org.junit.jupiter.api.*;
 import org.springframework.aop.*;
+import org.springframework.aop.aspectj.annotation.*;
 import org.springframework.aop.framework.*;
 import simpleproxy.cglib.*;
 import simpleproxy.dynamic.*;
@@ -22,7 +24,7 @@ public class SpringProxyFactoryTest {
     public void dynamicProxyTest() {
         ProxyFactory factory = new ProxyFactory(new SimpleServiceImpl());
         factory.addInterface(SimpleService.class);
-        factory.addAdvice((AfterReturningAdvice) (returnValue, method, args, target) -> log.info("----> advice"));
+        factory.addAdvice((MethodBeforeAdvice) (method, args, target) -> log.info("----> before " + method.getName()));
 
         SimpleService proxy = (SimpleService) factory.getProxy();
         proxy.foo();
@@ -37,13 +39,21 @@ public class SpringProxyFactoryTest {
     @Test
     public void cglibProxyTest() {
         ProxyFactory factory = new ProxyFactory(new CglibSimpleService());
-        factory.addAdvice((AfterReturningAdvice) (returnValue, method, args, target) -> log.info("----> advice"));
+        factory.addAdvice((MethodBeforeAdvice) (method, args, target) -> log.info("----> before " + method.getName()));
 
         CglibSimpleService proxy = (CglibSimpleService) factory.getProxy();
         proxy.foo();
-        proxy.bar();
+    }
 
-        assertTrue(factory.getProxy() instanceof CglibSimpleService);
+    @Test
+    public void aspectJTest() {
+        AspectJProxyFactory factory = new AspectJProxyFactory(new SuspectedServiceImpl());
+        factory.addInterface(SuspectedService.class);
+
+        factory.addAspect(new AspectionalAdvice());
+
+        SuspectedService proxy = factory.getProxy();
+        proxy.foo();
     }
 
 }

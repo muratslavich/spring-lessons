@@ -13,7 +13,7 @@
 
 ```java
 
-ublic class SimplePojo implements Pojo {
+public class SimplePojo implements Pojo {
 
     public void foo() {
         // this next method invocation is a direct call on the 'this' reference
@@ -35,6 +35,9 @@ To force the use of CGLIB proxies in bean DI.
 To force the use of CGLIB proxies set the value of the proxy-target-class attribute of the <aop:config> element to true
 
 
+DefaultAopProxyFactory::createAopProxy()
+
+
 Использование проксирования в spring:
 - AOP -> AspectJ
 - @Transactional
@@ -43,3 +46,5 @@ To force the use of CGLIB proxies set the value of the proxy-target-class attrib
 - Spring Security @PreAuthorize
 - @Configurable autowiring
  
+
+ProxyFactory

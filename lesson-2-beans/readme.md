@@ -18,14 +18,14 @@
     - set bean name
 2. Populating properties - dependencies
 3. Pre initialization
-    - postProcessBeforeInitialization
-    - postConstruct
+    - `postProcessBeforeInitialization`
+    - `postConstruct`
 4. After properties set
-    - afterPropertiesSet
+    - `afterPropertiesSet`
 5. Custom initialization
-    - init method
+    - `initMethod`
 6. Post initialization
-    - postProcessAfterInitialization
+    - `postProcessAfterInitialization`
 7. Bean is ready
 8. Pre destroy
 9. Destroy
@@ -40,12 +40,14 @@ BeanDefinition - рецепты для создания бинов. Опреде
     - ClassPathBeanDefinitionScanner
 2. Настройка созданных BeanDefinitions
     - BeanFactoryPostProcessor
-3. Создание кастомных beanFactory
+3. Создание кастомных FactoryBean
     - FactoryBean<T>
 4. Инстанциирование бинов
     - BeanFactory
 5. Настройка созданных бинов
     - BeanPostProcessor
+
+
 
 #### Dependency injection
 - Field - @Autowired 

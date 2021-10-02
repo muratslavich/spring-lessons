@@ -10,9 +10,9 @@ public class DynamicProxyTest {
     @Test
     public void foo() {
         SimpleService instance = (SimpleService) Proxy.newProxyInstance(
-            getClass().getClassLoader(),
-            new Class[]{ SimpleService.class },
-            ((proxy, method, args) -> {
+            getClass().getClassLoader(),                // classLoader
+            new Class[]{ SimpleService.class },         // interfaces
+            ((proxy, method, args) -> {                 // InvocationHandler
                 log.info("---> ADvice " + method.getName());
                 return method.invoke(new SimpleServiceImpl(), args);
             })

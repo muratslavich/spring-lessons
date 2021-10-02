@@ -8,7 +8,7 @@ import org.springframework.stereotype.*;
 * */
 
 @Component
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class FirstBean {
     final SecondBean secondBean;
 }
